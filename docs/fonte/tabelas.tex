@@ -1,0 +1,160 @@
+%% gerado por gerar_tabelas.py
+
+\newcommand{\TabelaDelta}{%
+\begin{tabular}{lccccc}
+\toprule
+$\delta$ & \texttt{a-z} & \texttt{0-9} & \texttt{.} & \texttt{\_} & \texttt{@} \\
+\midrule
+$\rightarrow$\,$q_{0}$ & $q_{1}$ & $q_{1}$ & \textcolor{cinza}{$q_p$} & $q_{1}$ & \textcolor{cinza}{$q_p$} \\
+$q_{1}$ & $q_{1}$ & $q_{1}$ & $q_{2}$ & $q_{1}$ & $q_{3}$ \\
+$q_{2}$ & $q_{1}$ & $q_{1}$ & \textcolor{cinza}{$q_p$} & $q_{1}$ & \textcolor{cinza}{$q_p$} \\
+$q_{3}$ & $q_{4}$ & $q_{4}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{4}$ & $q_{4}$ & $q_{4}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{5}$ & $q_{6}$ & $q_{9}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{6}$ & $q_{7}$ & $q_{9}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\rowcolor{verdeclaro}$*$\,$q_{7}$ & $q_{8}$ & $q_{9}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\rowcolor{verdeclaro}$*$\,$q_{8}$ & $q_{9}$ & $q_{9}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{9}$ & $q_{9}$ & $q_{9}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_p$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\bottomrule
+\end{tabular}}
+
+\newcommand{\TabelaEstados}{%
+\begin{tabular}{@{}l p{0.80\linewidth}@{}}
+\toprule
+estado & significado \\
+\midrule
+$q_{0}$ & início, ainda não leu nada \\
+$q_{1}$ & no usuário, o último símbolo foi letra, dígito ou \_ (aqui já pode vir o @) \\
+$q_{2}$ & no usuário, acabou de ler um ponto (não pode vir ponto nem @) \\
+$q_{3}$ & acabou de ler o @, domínio ainda vazio \\
+$q_{4}$ & dentro do 1º rótulo do domínio (ainda não leu ponto no domínio) \\
+$q_{5}$ & acabou de ler um ponto no domínio, rótulo atual vazio \\
+$q_{6}$ & rótulo atual (do 2º em diante) com 1 letra \\
+\rowcolor{verdeclaro}$q_{7}$ & rótulo atual com 2 letras, pode ser o último (final) \\
+\rowcolor{verdeclaro}$q_{8}$ & rótulo atual com 3 letras, pode ser o último (final) \\
+$q_{9}$ & rótulo atual (do 2º em diante) não pode ser o último: tem dígito ou 4 letras ou mais \\
+$q_p$ & poço (erro), não sai mais daqui \\
+\bottomrule
+\end{tabular}}
+
+\newcommand{\TabelaDeltaMinimo}{%
+\begin{tabular}{lccccc}
+\toprule
+$\delta$ & \texttt{a-z} & \texttt{0-9} & \texttt{.} & \texttt{\_} & \texttt{@} \\
+\midrule
+$\rightarrow$\,$\{q_{0},q_{2}\}$ & $q_{1}$ & $q_{1}$ & \textcolor{cinza}{$q_p$} & $q_{1}$ & \textcolor{cinza}{$q_p$} \\
+$q_{1}$ & $q_{1}$ & $q_{1}$ & $\{q_{0},q_{2}\}$ & $q_{1}$ & $q_{3}$ \\
+$q_{3}$ & $\{q_{4},q_{9}\}$ & $\{q_{4},q_{9}\}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$\{q_{4},q_{9}\}$ & $\{q_{4},q_{9}\}$ & $\{q_{4},q_{9}\}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{5}$ & $q_{6}$ & $\{q_{4},q_{9}\}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_{6}$ & $q_{7}$ & $\{q_{4},q_{9}\}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\rowcolor{verdeclaro}$*$\,$q_{7}$ & $q_{8}$ & $\{q_{4},q_{9}\}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\rowcolor{verdeclaro}$*$\,$q_{8}$ & $\{q_{4},q_{9}\}$ & $\{q_{4},q_{9}\}$ & $q_{5}$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+$q_p$ & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} & \textcolor{cinza}{$q_p$} \\
+\bottomrule
+\end{tabular}}
+
+\newcommand{\TabelaMinimizacao}{%
+\begin{tabular}{@{}l c l@{}}
+\toprule
+rodada & blocos & partição \\
+\midrule
+$P_{0}$ & 2 & {\small $\{q_{0},q_{1},q_{2},q_{3},q_{4},q_{5},q_{6},q_{9},q_p\}$\ $\{q_{7},q_{8}\}$} \\
+$P_{1}$ & 4 & {\small $\{q_{0},q_{1},q_{2},q_{3},q_{4},q_{5},q_{9},q_p\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$} \\
+$P_{2}$ & 5 & {\small $\{q_{0},q_{1},q_{2},q_{3},q_{4},q_{9},q_p\}$\ $\{q_{5}\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$} \\
+$P_{3}$ & 6 & {\small $\{q_{0},q_{1},q_{2},q_{3},q_p\}$\ $\{q_{4},q_{9}\}$\ $\{q_{5}\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$} \\
+$P_{4}$ & 7 & {\small $\{q_{0},q_{1},q_{2},q_p\}$\ $\{q_{3}\}$\ $\{q_{4},q_{9}\}$\ $\{q_{5}\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$} \\
+$P_{5}$ & 8 & {\small $\{q_{0},q_{2},q_p\}$\ $\{q_{1}\}$\ $\{q_{3}\}$\ $\{q_{4},q_{9}\}$\ $\{q_{5}\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$} \\
+$P_{6}$ & 9 & {\small $\{q_{0},q_{2}\}$\ $\{q_{1}\}$\ $\{q_{3}\}$\ $\{q_{4},q_{9}\}$\ $\{q_{5}\}$\ $\{q_{6}\}$\ $\{q_{7}\}$\ $\{q_{8}\}$\ $\{q_p\}$} \\
+\bottomrule
+\end{tabular}}
+
+\newcommand{\TestesObrig}{%
+\begin{tabular}{@{}l l l c >{\raggedright\arraybackslash}p{0.43\linewidth}@{}}
+\toprule
+palavra & esperado & obtido & ok & para em / motivo \\
+\midrule
+\texttt{aluno@uni.edu.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao.silva\_2@mail.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{j@a.io} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{.joao@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,1: o usuário não pode começar com ponto} \\
+\texttt{joao..silva@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,6: o usuário não pode ter dois pontos seguidos} \\
+\texttt{joao@mail} & rejeita & rejeita & \ok & {\scriptsize $q_{4}$: o domínio precisa ter pelo menos dois rótulos separados por ponto} \\
+\texttt{joao@@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,6: o e-mail tem que ter exatamente um @} \\
+\texttt{joao@mail.c} & rejeita & rejeita & \ok & {\scriptsize $q_{6}$: o último rótulo tem só 1 letra (precisa de 2 ou 3)} \\
+\texttt{joao@mail.com1} & rejeita & rejeita & \ok & {\scriptsize $q_{9}$: o último rótulo precisa ter só letras, 2 ou 3} \\
+\bottomrule
+\end{tabular}}
+\newcommand{\TestesObrigTotal}{9/9}
+
+\newcommand{\TestesProprias}{%
+\begin{tabular}{@{}l l l c >{\raggedright\arraybackslash}p{0.43\linewidth}@{}}
+\toprule
+palavra & esperado & obtido & ok & para em / motivo \\
+\midrule
+\texttt{a@b.cc} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{a@b.ccc} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{\_@b.cc} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{1@2.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao\_@mail.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{\_joao@mail.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{a.b.c.d@mail.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{joao@123.456.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{joao@a.b.c.de} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao@mail.comp.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao@x1.y2.org} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{joao@mail.co.uk} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{user\_\_name@site.net} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{z9.y\_8@q.zz} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{nome.sobrenome@sub.dominio.gov.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+$\varepsilon$ (vazia) & rejeita & rejeita & \ok & {\scriptsize $q_{0}$: palavra vazia} \\
+\texttt{a@b.c} & rejeita & rejeita & \ok & {\scriptsize $q_{6}$: o último rótulo tem só 1 letra (precisa de 2 ou 3)} \\
+\texttt{a@b.cccc} & rejeita & rejeita & \ok & {\scriptsize $q_{9}$: o último rótulo precisa ter só letras, 2 ou 3} \\
+\texttt{joao} & rejeita & rejeita & \ok & {\scriptsize $q_{1}$: falta o @ e o domínio} \\
+\texttt{joao.} & rejeita & rejeita & \ok & {\scriptsize $q_{2}$: falta o @ e o domínio, e o usuário não pode terminar com ponto} \\
+\texttt{@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,1: o usuário não pode ser vazio} \\
+\texttt{joao@} & rejeita & rejeita & \ok & {\scriptsize $q_{3}$: domínio vazio} \\
+\texttt{joao.@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,6: o usuário não pode terminar com ponto} \\
+\texttt{joao@.mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,6: o domínio não pode começar com ponto} \\
+\texttt{joao@mail..com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,11: dois pontos seguidos no domínio (rótulo vazio)} \\
+\texttt{joao@mail.com.} & rejeita & rejeita & \ok & {\scriptsize $q_{5}$: não pode terminar com ponto (último rótulo vazio)} \\
+\texttt{joao@mail.c0m} & rejeita & rejeita & \ok & {\scriptsize $q_{9}$: o último rótulo precisa ter só letras, 2 ou 3} \\
+\texttt{joao@mail\_x.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,10: não pode ter \_ no domínio} \\
+\texttt{joao@mail.com@x.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,14: o e-mail tem que ter exatamente um @} \\
+\texttt{joao@mailcom} & rejeita & rejeita & \ok & {\scriptsize $q_{4}$: o domínio precisa ter pelo menos dois rótulos separados por ponto} \\
+\texttt{Joao@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,1: o símbolo 'J' não está no alfabeto} \\
+\texttt{joão@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,3: o símbolo 'ã' não está no alfabeto} \\
+\texttt{joao␣silva@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,5: o símbolo ' ' não está no alfabeto} \\
+\texttt{joao@mail-x.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,10: o símbolo '-' não está no alfabeto} \\
+\texttt{joao@mail.com␣} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,14: o símbolo ' ' não está no alfabeto} \\
+\texttt{.} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,1: o usuário não pode começar com ponto} \\
+\texttt{@} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,1: o usuário não pode ser vazio} \\
+\bottomrule
+\end{tabular}}
+\newcommand{\TestesPropriasTotal}{37/37}
+
+\newcommand{\TestesHifen}{%
+\begin{tabular}{@{}l l l c >{\raggedright\arraybackslash}p{0.43\linewidth}@{}}
+\toprule
+palavra & esperado & obtido & ok & para em / motivo \\
+\midrule
+\texttt{joao@mail-x.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{joao@a-b-c.com.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao@a--b.com} & aceita & aceita & \ok & {\scriptsize termina em $q_{8}$} \\
+\texttt{joao@uni.sub-dom.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{aluno@uni.edu.br} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{j@a.io} & aceita & aceita & \ok & {\scriptsize termina em $q_{7}$} \\
+\texttt{joao@-mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,6: rótulo do domínio não pode começar com hífen} \\
+\texttt{joao@mail-.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,11: rótulo do domínio não pode terminar com hífen} \\
+\texttt{joao@mail.-com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,11: rótulo do domínio não pode começar com hífen} \\
+\texttt{joao@mail.com-} & rejeita & rejeita & \ok & {\scriptsize $q_{11}$: rótulo do domínio não pode terminar com hífen} \\
+\texttt{joao@mail.co-m} & rejeita & rejeita & \ok & {\scriptsize $q_{9}$: o último rótulo precisa ter só letras, 2 ou 3} \\
+\texttt{jo-ao@mail.com} & rejeita & rejeita & \ok & {\scriptsize $q_p$, pos.\,3: hífen só é permitido no domínio} \\
+\texttt{joao@mail} & rejeita & rejeita & \ok & {\scriptsize $q_{4}$: o domínio precisa ter pelo menos dois rótulos separados por ponto} \\
+\texttt{joao@mail.com1} & rejeita & rejeita & \ok & {\scriptsize $q_{9}$: o último rótulo precisa ter só letras, 2 ou 3} \\
+\bottomrule
+\end{tabular}}
+\newcommand{\TestesHifenTotal}{14/14}
+
+\newcommand{\TestesTotal}{60/60}

@@ -1,0 +1,12 @@
+# Palavras obrigatórias do Tema 6 (tabela do enunciado)
+# formato: esperado  "palavra"  descrição
+
+aceita    "aluno@uni.edu.br"         três rótulos no domínio
+aceita    "joao.silva_2@mail.com"    ponto, _ e dígito no usuário
+aceita    "j@a.io"                   usuário e 1º rótulo com 1 símbolo
+rejeita   ".joao@mail.com"           usuário começa com ponto
+rejeita   "joao..silva@mail.com"     dois pontos seguidos no usuário
+rejeita   "joao@mail"                domínio com um rótulo só
+rejeita   "joao@@mail.com"           dois @
+rejeita   "joao@mail.c"              último rótulo com 1 letra
+rejeita   "joao@mail.com1"           último rótulo com dígito

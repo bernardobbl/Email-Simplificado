@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# arquivos temporários do LaTeX
+docs/fonte/*.aux
+docs/fonte/*.log
+docs/fonte/*.out

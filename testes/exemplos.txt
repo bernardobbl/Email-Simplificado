@@ -1,0 +1,10 @@
+aluno@uni.edu.br
+joao.silva_2@mail.com
+j@a.io
+.joao@mail.com
+joao..silva@mail.com
+joao@mail
+joao@@mail.com
+joao@mail.c
+joao@mail.com1
+ε

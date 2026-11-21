@@ -1,0 +1,18 @@
+# Testes da versão com hífen no domínio (parte "para ir além" do enunciado)
+# rodam com o AFD_EMAIL_HIFEN
+# formato: esperado  "palavra"  descrição
+
+aceita    "joao@mail-x.com"          hífen no meio do 1º rótulo (q4 → q10 → q4)
+aceita    "joao@a-b-c.com.br"        vários hífens isolados
+aceita    "joao@a--b.com"            hífens seguidos no meio são permitidos (q10 laço)
+aceita    "joao@uni.sub-dom.br"      hífen num rótulo intermediário (q11 → q9)
+aceita    "aluno@uni.edu.br"         obrigatória continua aceita
+aceita    "j@a.io"                   obrigatória continua aceita
+rejeita   "joao@-mail.com"           rótulo começa com hífen (q3)
+rejeita   "joao@mail-.com"           rótulo termina com hífen (q10)
+rejeita   "joao@mail.-com"           rótulo começa com hífen (q5)
+rejeita   "joao@mail.com-"           termina com hífen (q11)
+rejeita   "joao@mail.co-m"           último rótulo com hífen não vale (q9)
+rejeita   "jo-ao@mail.com"           hífen no usuário continua proibido
+rejeita   "joao@mail"                obrigatória continua rejeitada
+rejeita   "joao@mail.com1"           obrigatória continua rejeitada

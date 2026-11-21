@@ -1,0 +1,44 @@
+# Palavras de teste do grupo, pensadas para testar as bordas da linguagem
+# formato: esperado  "palavra"  descrição
+# entre parênteses fica o estado em que a palavra termina
+
+# aceitas (15)
+aceita    "a@b.cc"                   menor palavra aceita: 6 símbolos (para em q7)
+aceita    "a@b.ccc"                  último rótulo com 3 letras, o máximo (q8)
+aceita    "_@b.cc"                   usuário só com sublinhado
+aceita    "1@2.br"                   usuário e 1º rótulo só com dígitos
+aceita    "joao_@mail.com"           usuário pode terminar com _
+aceita    "_joao@mail.com"           usuário pode começar com _
+aceita    "a.b.c.d@mail.com"         vários pontos isolados no usuário (q1 → q2 → q1)
+aceita    "joao@123.456.com"         rótulos do domínio só com dígitos
+aceita    "joao@a.b.c.de"            vários rótulos de 1 letra antes do último
+aceita    "joao@mail.comp.br"        rótulo de 4 letras no meio (q9) e depois volta a q5
+aceita    "joao@x1.y2.org"           rótulos intermediários com dígitos
+aceita    "joao@mail.co.uk"          rótulo de 2 letras no meio é permitido
+aceita    "user__name@site.net"      dois sublinhados seguidos são permitidos
+aceita    "z9.y_8@q.zz"              mistura de tudo no usuário
+aceita    "nome.sobrenome@sub.dominio.gov.br"   e-mail longo e realista
+
+# rejeitadas (22)
+rejeita   ""                         palavra vazia ε (para em q0)
+rejeita   "a@b.c"                    um símbolo a menos que a menor aceita (q6)
+rejeita   "a@b.cccc"                 um símbolo a mais: último rótulo com 4 letras (q9)
+rejeita   "joao"                     sem @ (para em q1)
+rejeita   "joao."                    sem @ e termina com ponto (para em q2)
+rejeita   "@mail.com"                usuário vazio
+rejeita   "joao@"                    domínio vazio (para em q3)
+rejeita   "joao.@mail.com"           usuário termina com ponto
+rejeita   "joao@.mail.com"           domínio começa com ponto (rótulo vazio)
+rejeita   "joao@mail..com"           dois pontos seguidos no domínio (rótulo vazio)
+rejeita   "joao@mail.com."           termina com ponto (para em q5)
+rejeita   "joao@mail.c0m"            dígito no último rótulo
+rejeita   "joao@mail_x.com"          sublinhado no domínio
+rejeita   "joao@mail.com@x.com"      dois @ separados
+rejeita   "joao@mailcom"             domínio sem ponto
+rejeita   "Joao@mail.com"            letra maiúscula: fora de Σ
+rejeita   "joão@mail.com"            letra acentuada: fora de Σ
+rejeita   "joao silva@mail.com"      espaço: fora de Σ
+rejeita   "joao@mail-x.com"          hífen: fora de Σ na versão principal
+rejeita   "joao@mail.com "           espaço no fim também é símbolo fora de Σ
+rejeita   "."                        um ponto sozinho
+rejeita   "@"                        um @ sozinho
