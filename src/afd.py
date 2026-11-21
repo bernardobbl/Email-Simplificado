@@ -33,6 +33,27 @@ class AFD:
         self.significado = significado
         self.simbolos = set(alfabeto)
 
+        # valida a estrutura da tabela antes de expandi-la. Assim, um erro
+        # de digitação em um rótulo de grupo produz uma mensagem útil, em vez
+        # de um KeyError durante a construção de delta.
+        estados_tabela = set(self.transicoes)
+        estados_esperados = set(self.estados)
+        faltando = estados_esperados - estados_tabela
+        extras = estados_tabela - estados_esperados
+        if faltando:
+            raise ValueError("faltaram linhas na tabela: %s" % ", ".join(sorted(faltando)))
+        if extras:
+            raise ValueError("estados desconhecidos na tabela: %s" % ", ".join(sorted(extras)))
+
+        grupos_desconhecidos = set()
+        for transicoes_estado in self.transicoes.values():
+            grupos_desconhecidos.update(set(transicoes_estado) - set(self.grupos))
+        if grupos_desconhecidos:
+            raise ValueError(
+                "grupos desconhecidos na tabela: %s"
+                % ", ".join(sorted(grupos_desconhecidos))
+            )
+
         # monta delta[q][s] para cada estado e cada símbolo
         self.delta = {}
         for q in self.estados:
