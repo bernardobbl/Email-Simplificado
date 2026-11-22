@@ -3,11 +3,11 @@
 Trabalho prático de Linguagens Formais e Autômatos (2026.2), Prof. Dr. Leonardo Angelo.
 
 Integrantes:
-- Alawander
+- Alawander Fernandes da Silva
 - Bernardo Barcellos Leite
-- Dereck
-- Pietro Santana
-- Roberto Vieira
+- Dereck Patrick Morais de Sá
+- Pietro Santana Fragaso Vasconcelos
+- Roberto Ryan Santiago Vieira
 
 O programa lê e-mails e diz se cada um é aceito ou rejeitado pelo AFD, mostrando o caminho de estados percorrido. Quando rejeita, ele também mostra o motivo.
 
